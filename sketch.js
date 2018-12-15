@@ -129,8 +129,7 @@ function redlight() {
 		} else {
 			this.On = false;
 			honk.stop();
-		}
-			
+		}		
 	}
 }
 function yellowlight(){
