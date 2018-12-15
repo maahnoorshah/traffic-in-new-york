@@ -5,7 +5,10 @@ var Y = 600;
 var speed = 50; 
 var counter = 10;
 var move = true; 
+var counter2 = 10;
+var move2 = true; 
 var sign = 1;
+var sign2 = 1; 
 var Dist = 4; 
 var song; 
 var honk; 
@@ -16,31 +19,53 @@ streetsign = loadImage('5thAve.png');
 streetpic = loadImage ('background.jpg');
 song = loadSound ("Ambience_-_Busy_Street_Road.mp3");
 honk = loadSound ("honk.mp3");
+bloomies = loadImage("barneys.png");
+saks = loadImage("saks.png");
+bg = loadImage("bg.png");
+sephora = loadImage ("sephora.png");
+henri = loadImage ("hb.png");
+	
 }
 function setup() {
 	createCanvas(1000,1000);
 	background(streetpic);
 	colorMode(RGB);
 	streetsign.resize(300,0);
+	bloomies.resize(85,0);
+	saks.resize(70,0);
+	sephora.resize(80,0);
+	bg.resize(80,0);
+	henri.resize (80,0);
 	myRed = new redlight();
 	myYellow = new yellowlight();
 	myGreen = new greenlight ();
 	song.play();
+	if (move2) {
+		counter2= counter2+sign*Dist;
+	}
+	if (counter2>255 || counter2<0){sign = sign*-1;}
 }
 function draw () {
 	
 	background(255,255, 255,45);
-	building(375,600);
-	building(100,600);
-	building(650,600);
-	building(500,600);
-	building(250,600);
+	//building(375,600);
+	building(0,600);
+	building (200,600);
+	building (400,600);
+	building (800,600);
+	building(600,600);
+	
 	//building(50,600);
 	// traffic light 
 	rect(0,200, 70, 160); 
 	myRed.display(20);
 	myYellow.display(20);
 	myGreen.display (20);
+	image(bloomies,60,665);
+	image(saks,260,665);
+	image(henri,450,660);
+	image(bg,660,660);
+	image(sephora,860,660);
 	image(car,x-counter,y);
 	image(streetsign, 300,200);
 	if (move) { 
@@ -49,17 +74,23 @@ function draw () {
 	if (counter>900 || counter<0) {
 		sign = sign*-1; 
 	}
+	if (move2) { 
+		counter2 = counter2 + sign2*Dist; 
+	}
+	if (counter2>250 || counter2<0) {
+		sign2 = sign2*-1; 
+	}
 }
 function building(X,Y) {
 	noStroke ();
-	fill(210,180,140)
+	fill(210-counter2,180+(counter2/3),140+(counter/4),120)
 	rect(X, Y, 100, 700,10); /// left 1 
 	rect(X+25,Y-50, 100, 700,10); /// left 2 
 	rect(X+50,Y-100, 100, 700,10); /// middle 
 	rect(X+50,Y,100,100,10);
 	rect(X+75,Y-50, 100, 700,10); ///right 2 
 	rect(X+100,Y,100, 700,10); ///right 1 
-	fill (105,105,105,40);
+	fill (105+(counter2/3),105+(counter2/2),105+counter2,40);
 	rect (X+35,Y,50,50,10);
 	rect (X+35,Y+150, 50,50,10);
 	rect (X+35,Y+300, 50,50,10);
