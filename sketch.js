@@ -14,9 +14,9 @@ var song;
 var honk; 
 
 function preload (){
-car = loadImage('image.png');
-streetsign = loadImage('5thAve.png');
-streetpic = loadImage ('background.jpg');
+car = loadImage("image.png");
+streetsign = loadImage("5thAve.png");
+streetpic = loadImage ("background.jpg");
 song = loadSound ("Ambience - Busy Street Road.mp3");
 honk = loadSound ("honk.mp3");
 bloomies = loadImage("barneys.png");
