@@ -185,7 +185,6 @@ function greenlight(){
 		}
 	  ellipse(this.X,this.Y,this.size,this.size);
 	}
-	
 	this.hitcheck = function(){
 		if(dist(mouseX,mouseY,this.X,this.Y) <= 25){
 			move = true;
@@ -193,17 +192,10 @@ function greenlight(){
 			this.On = true;
 		} else {
 			this.On = false;
-		}
-			
+		}	
 	}
 }
-/*function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    x = x - speed;
-  } else if (keyCode === RIGHT_ARROW) {
-    x = x + speed;
-  }
-}*/
+
 function mousePressed (){
 	myRed.hitcheck()
 	myYellow.hitcheck()
